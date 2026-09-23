@@ -1,0 +1,21 @@
+server:
+  port: 8081
+jwt:
+  secret: mySuperSecretKeyForJwtSigningThatIsAtLeast256BitsLong123456
+  expiration-ms: 86400000
+spring:
+  application:
+    name: user-service
+  datasource:
+    url: jdbc:postgresql://${DB_HOST:localhost}:5432/userdb
+    username: postgres
+    password: 1234
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://${EUREKA_HOST:localhost}:8761/eureka/
